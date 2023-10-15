@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.HttpOverrides;
-using TextToSpeech.Options;
-using TextToSpeech.TextToSpeechService;
+using SpeechToTextTranslation.Options;
+using SpeechToTextTranslation.SpeechToTextTranslationService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,16 +34,16 @@ builder.Services.AddCors(options =>
 
 // Options
 builder.Services
-    .AddOptions<TTSOptions>()
-    .Bind(builder.Configuration.GetSection("TTSOptions"))
+    .AddOptions<STTTOptions>()
+    .Bind(builder.Configuration.GetSection("STTTOptions"))
     .ValidateDataAnnotations();
 
-builder.Services.AddSingleton<TTSConverter>();
+builder.Services.AddSingleton<STTTConverter>();
 
 // Set port number
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(5000);
+    options.ListenAnyIP(3000);
 });
 
 var app = builder.Build();
@@ -62,7 +62,7 @@ else
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "TextToSpeech API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "SpeechToTextTranslation API V1");
 });
 app.UseHttpsRedirection();
 app.UseRouting();
