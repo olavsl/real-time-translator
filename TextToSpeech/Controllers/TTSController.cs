@@ -1,19 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
-using RealTimeTranslator.TextToSpeechService;
+using TextToSpeech.TextToSpeechService;
 
-namespace RealTimeTranslator.Controllers
+namespace TextToSpeech.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TextToSpeechController : ControllerBase
+    public class TTSController : ControllerBase
     {
-        private readonly ILogger<TextToSpeechController> _logger;
-        private readonly TextToSpeech _textToSpeech;
+        private readonly ILogger<TTSController> _logger;
+        private readonly TTSConverter _ttsConverter;
 
-        public TextToSpeechController(ILogger<TextToSpeechController> logger, TextToSpeech textToSpeech)
+        public TTSController(ILogger<TTSController> logger, TTSConverter ttsConverter)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _textToSpeech = textToSpeech ?? throw new ArgumentNullException(nameof(textToSpeech));
+            _ttsConverter = ttsConverter ?? throw new ArgumentNullException(nameof(ttsConverter));
         }
 
         [HttpPost("convert", Name = "Convert")]
@@ -22,7 +22,7 @@ namespace RealTimeTranslator.Controllers
         [ProducesResponseType(typeof(ProblemDetails), 500)]
         public async Task<IActionResult> Post([FromBody] string text)
         {
-            var audioBytes = await _textToSpeech.ConvertTextToSpeech(text);
+            var audioBytes = await _ttsConverter.ConvertTextToSpeech(text);
             return File(audioBytes, "audio/wav", "output");
         }
     }
