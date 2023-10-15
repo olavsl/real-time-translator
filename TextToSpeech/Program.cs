@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.HttpOverrides;
-using RealTimeTranslator.Options;
-using RealTimeTranslator.TextToSpeechService;
+using TextToSpeech.Options;
+using TextToSpeech.TextToSpeechService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,7 +38,7 @@ builder.Services
     .Bind(builder.Configuration.GetSection("TTSOptions"))
     .ValidateDataAnnotations();
 
-builder.Services.AddSingleton<TextToSpeech>();
+builder.Services.AddSingleton<TTSConverter>();
 
 var app = builder.Build();
 
@@ -56,7 +56,7 @@ else
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RealTimeTranslator API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "TextToSpeech API V1");
 });
 app.UseHttpsRedirection();
 app.UseRouting();

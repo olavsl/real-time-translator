@@ -1,18 +1,18 @@
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.Extensions.Options;
-using RealTimeTranslator.Options;
+using TextToSpeech.Options;
 
-namespace RealTimeTranslator.TextToSpeechService
+namespace TextToSpeech.TextToSpeechService
 {
-    public class TextToSpeech
+    public class TTSConverter
     {
-        private readonly ILogger<TextToSpeech> _logger;
+        private readonly ILogger<TTSConverter> _logger;
         private readonly IOptionsMonitor<TTSOptions> _ttsOptions;
 
         private readonly SpeechConfig speechConfig;
 
-        public TextToSpeech(ILogger<TextToSpeech> logger, IOptionsMonitor<TTSOptions> ttsOptions)
+        public TTSConverter(ILogger<TTSConverter> logger, IOptionsMonitor<TTSOptions> ttsOptions)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _ttsOptions = ttsOptions ?? throw new ArgumentNullException(nameof(ttsOptions));
