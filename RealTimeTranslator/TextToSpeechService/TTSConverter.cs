@@ -1,9 +1,9 @@
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.Extensions.Options;
-using TextToSpeech.Options;
+using RealTimeTranslator.Options;
 
-namespace TextToSpeech.TextToSpeechService
+namespace RealTimeTranslator.TextToSpeechService
 {
     public class TTSConverter
     {
