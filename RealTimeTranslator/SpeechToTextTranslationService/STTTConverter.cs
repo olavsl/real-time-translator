@@ -2,9 +2,9 @@ using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Translation;
 using Microsoft.Extensions.Options;
-using SpeechToTextTranslation.Options;
+using RealTimeTranslator.Options;
 
-namespace SpeechToTextTranslation.SpeechToTextTranslationService
+namespace RealTimeTranslator.SpeechToTextTranslationService
 {
     public class STTTConverter
     {
@@ -42,7 +42,6 @@ namespace SpeechToTextTranslation.SpeechToTextTranslationService
                 translatedText = result.Translations[_stttOptions.CurrentValue.TargetLanguage];
             }
             _logger.LogInformation($"Translating from {_stttOptions.CurrentValue.SourceLanguage} to {_stttOptions.CurrentValue.TargetLanguage}");
-            _logger.LogInformation($"Translated text: {translatedText}");
             return translatedText;
         }
     }

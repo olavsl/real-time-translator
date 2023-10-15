@@ -16,7 +16,7 @@ namespace TextToSpeech.Controllers
             _ttsConverter = ttsConverter ?? throw new ArgumentNullException(nameof(ttsConverter));
         }
 
-        [HttpPost("convert", Name = "Convert")]
+        [HttpPost("TTS/convert", Name = "TTS/Convert")]
         [ProducesResponseType(typeof(FileContentResult), 200)]
         [ProducesResponseType(typeof(ProblemDetails), 400)]
         [ProducesResponseType(typeof(ProblemDetails), 500)]

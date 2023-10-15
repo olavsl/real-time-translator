@@ -17,7 +17,7 @@ namespace SpeechToTextTranslation.Controllers
             _stttConverter = stttConverter ?? throw new ArgumentNullException(nameof(stttConverter));
         }
 
-        [HttpPost("convert", Name = "Convert")]
+        [HttpPost("STTT/convert", Name = "STTT/Convert")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IResult> Post(IFormFile audioFile)
