@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using RealTimeTranslator.Options;
-using RealTimeTranslator.SpeechToTextTranslationService;
-using RealTimeTranslator.TextToSpeechService;
+using SpeechToSpeechTranslator.Options;
+using SpeechToSpeechTranslator.SpeechToTextTranslationService;
+using SpeechToSpeechTranslator.TextToSpeechService;
 
-namespace RealTimeTranslator.RealTimeTranslatorService
+namespace SpeechToSpeechTranslator.SpeechToSpeechTranslatorService
 {
     public class RTT
     {

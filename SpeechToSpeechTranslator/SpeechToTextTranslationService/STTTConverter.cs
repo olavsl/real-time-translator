@@ -2,9 +2,9 @@ using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Translation;
 using Microsoft.Extensions.Options;
-using RealTimeTranslator.Options;
+using SpeechToSpeechTranslator.Options;
 
-namespace RealTimeTranslator.SpeechToTextTranslationService
+namespace SpeechToSpeechTranslator.SpeechToTextTranslationService
 {
     public class STTTConverter
     {

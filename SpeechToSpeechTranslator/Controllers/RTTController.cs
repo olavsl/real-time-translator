@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using RealTimeTranslator.RealTimeTranslatorService;
+using SpeechToSpeechTranslator.SpeechToSpeechTranslatorService;
 
-namespace RealTimeTranslator.Controllers
+namespace SpeechToSpeechTranslator.Controllers
 {
     [ApiController]
     [Route("[controller]")]

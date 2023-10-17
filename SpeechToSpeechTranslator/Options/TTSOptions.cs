@@ -1,4 +1,4 @@
-namespace RealTimeTranslator.Options
+namespace SpeechToSpeechTranslator.Options
 {
     public class TTSOptions
     {
